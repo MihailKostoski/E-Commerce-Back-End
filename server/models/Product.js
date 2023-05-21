@@ -21,9 +21,9 @@ const ProductSchema = new mongoose.Schema(
     color: { type: String },
     colorsAvilable: { type: Array },
     price: { type: Number, required: true },
-    totalPrice: { type: Number, required: true },
+
     quantity: { type: Number, required: true },
-    totalQuantity: { type: Number, required: true },
+
     ratings: { type: Number },
     // totalPrice: { type: Number, required: true },
   },

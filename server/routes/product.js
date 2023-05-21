@@ -44,6 +44,9 @@ router.get("/", async (req, res) => {
   let qNew = req.query.new;
   let qCategory = req.query.category;
   let qName = req.query.name;
+  let qTitle = req.query.title;
+  const regexTitle = new RegExp(qTitle, "i");
+
   try {
     let products;
 
@@ -59,6 +62,12 @@ router.get("/", async (req, res) => {
       products = await Product.find({
         name: {
           $in: qName,
+        },
+      });
+    } else if (qTitle) {
+      products = await Product.find({
+        title: {
+          $regex: regexTitle,
         },
       });
     } else {
